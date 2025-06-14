@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Mascota Feliz</title>
+    <title>{% block title %}Mascota Feliz{% endblock %}</title>
 </head>
 <body>
-    <h1>Bienvenido a Mascota Feliz</h1>
-    <p>hecho por matipene</p>
+    {% include 'app/nav_foot/nav.html' %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include 'app/nav_foot/footer.html' %}
 </body>
 </html>

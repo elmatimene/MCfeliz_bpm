@@ -8,3 +8,6 @@ def home(request):
 
 def agendar(request):
     return render(render, 'app/agendar.html')
+
+def nav(request):
+    return render(render, 'app/nav_foot/nav')
