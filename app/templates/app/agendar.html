@@ -1,12 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Mascota Feliz</title>
-</head>
-<body>
-    <h1>aca va a ir las cosas para ajendar</h1>
-    <p>hecho por matipene</p>
-</body>
-</html>
+{% extends 'app/nav_foot/base.html' %}
+{% load static %}
+
+{% block title %}Agendar Cita - Mascota Feliz{% endblock %}
+
+{% block content %}
+    <h2>Agendar una cita 🗓️</h2>
+    <p>Hecho por Matipene</p>
+
+    <form action="#" method="post">
+        
+
+        <label for="dueno">Nombre del dueño:</label><br>
+        <input type="text" id="dueno" name="dueno" required><br><br>
+
+        <label for="animalname">Nombre de la mascota:</label><br>
+        <input type="text" id="animalname" name="animalname" required><br><br>
+
+        <label for="speciesname">Especie:</label><br>
+        <select id="speciesname" name="speciesname" required>
+            <option value="Dog">Perro</option>
+            <option value="Cat">Gato</option>
+        </select><br><br>
+
+        <label for="breedname">Raza:</label><br>
+        <input type="text" id="breedname" name="breedname"><br><br>
+
+        <label for="basecolour">Color:</label><br>
+        <input type="text" id="basecolour" name="basecolour"><br><br>
+
+        <label for="fecha">Fecha de atención:</label><br>
+        <input type="date" id="fecha" name="fecha" required><br><br>
+
+        <label for="motivo">Motivo de la atención:</label><br>
+        <textarea id="motivo" name="motivo" rows="4" cols="40" placeholder="Describa el motivo..."></textarea><br><br>
+
+        <button type="submit">Reservar hora</button>
+    </form>
+{% endblock %}

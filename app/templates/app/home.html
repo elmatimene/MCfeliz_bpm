@@ -1,15 +1,9 @@
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Mascota Feliz{% endblock %}</title>
-</head>
-<body>
-    {% include 'app/nav_foot/nav.html' %}
+{% extends 'app/nav_foot/base.html' %}
+{% load static %}
 
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+{% block title %}Inicio{% endblock %}
 
-    {% include 'app/nav_foot/footer.html' %}
-</body>
-</html>
+{% block content %}
+    <h2>Bienvenido a Mascota Feliz </h2>
+    <img src="{% static 'img/crash.jpg' %}" alt="Mascota feliz" width="300">
+{% endblock %}
