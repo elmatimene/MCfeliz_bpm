@@ -1,9 +1,96 @@
 {% extends 'app/nav_foot/base.html' %}
 {% load static %}
 
-{% block title %}Inicio{% endblock %}
+{% block title %}Inicio - Mascota Feliz{% endblock %}
 
 {% block content %}
-    <h2>Bienvenido a Mascota Feliz </h2>
-    <img src="{% static 'img/crash.jpg' %}" alt="Mascota feliz" width="300">
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <link rel="stylesheet" href="{% static 'css/style.css' %}">
+            <div class="hero-text">
+                <h2 class="hero-title">Bienvenido a Mascota Feliz</h2>
+                <p class="hero-subtitle">Cuidado veterinario profesional en la comodidad de tu hogar</p>
+                <p class="hero-description">
+                    Ofrecemos servicios veterinarios a domicilio para que tu mascota reciba la mejor atención
+                    sin el estrés de salir de casa. Nuestro equipo de profesionales está listo para cuidar
+                    de la salud y bienestar de tu compañero peludo.
+                </p>
+                <a href="{% url 'agendar' %}" class="cta-button">
+                    <i class="fas fa-calendar-check"></i>
+                    Agendar Cita Ahora
+                </a>
+            </div>
+            <div class="hero-image">
+                <img src="{% static 'img/imagen_mascotas1.avif' %}" alt="Veterinario atendiendo mascota"
+                    class="hero-img">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="services">
+    <div class="container">
+        <h3 class="section-title">Nuestros Servicios</h3>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-stethoscope"></i>
+                </div>
+                <h4>Consultas Médicas</h4>
+                <p>Exámenes completos y diagnósticos profesionales en tu hogar</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-syringe"></i>
+                </div>
+                <h4>Vacunación</h4>
+                <p>Programa completo de vacunas para mantener a tu mascota protegida</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-cut"></i>
+                </div>
+                <h4>Peluquería</h4>
+                <p>Servicios de grooming y cuidado estético para tu mascota</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-ambulance"></i>
+                </div>
+                <h4>Emergencias</h4>
+                <p>Atención de urgencia las 24 horas para casos críticos</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="why-choose">
+    <div class="container">
+        <h3 class="section-title">¿Por qué elegir Mascota Feliz?</h3>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h4>Servicio a Domicilio</h4>
+                <p>Comodidad total para ti y tu mascota</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h4>Profesionales Certificados</h4>
+                <p>Veterinarios con amplia experiencia</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h4>Horarios Flexibles</h4>
+                <p>Nos adaptamos a tu disponibilidad</p>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

@@ -4,42 +4,143 @@
 {% block title %}Agendar Cita - Mascota Feliz{% endblock %}
 
 {% block content %}
-<h2>Agendar una cita 🗓️</h2>
-<p>Hecho por Matipene</p>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="{% static 'css/style2.css' %}">
 
-<form method="post">
-    {% csrf_token %}
+<section class="appointment-section">
+    <div class="container">
+        <div class="appointment-header">
+            <h2><i class="fas fa-calendar-check"></i> Agendar una Cita</h2>
+            <p>Completa el formulario para reservar una cita veterinaria a domicilio</p>
+        </div>
 
-    <label for="dueno">Nombre del dueño:</label><br>
-    <input type="text" id="dueno" name="dueno" required><br><br>
+        <div class="appointment-container">
+            <div class="appointment-info">
+                <h3>¿Cómo funciona?</h3>
+                <div class="info-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Completa el formulario</h4>
+                            <p>Proporciona los datos de tu mascota y selecciona el servicio</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Confirmamos tu cita</h4>
+                            <p>Te contactaremos para confirmar fecha y hora</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Visitamos tu hogar</h4>
+                            <p>Nuestro veterinario llega a tu casa en el horario acordado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <label for="correo">Correo del dueño:</label><br>
-    <input type="email" id="correo" name="correo"><br><br>
+            <div class="appointment-form-container">
+                <form method="post" id="appointmentForm">
+                    {% csrf_token %}
 
-    <label for="direccion">Dirección:</label><br>
-    <input type="text" id="direccion" name="direccion" required><br><br>
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Información del Propietario</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dueno">
+                                    <i class="fas fa-user"></i>
+                                    Nombre completo *
+                                </label>
+                                <input type="text" id="dueno" name="dueno" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="correo">
+                                    <i class="fas fa-envelope"></i>
+                                    Correo electrónico
+                                </label>
+                                <input type="email" id="correo" name="correo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Dirección completa *
+                            </label>
+                            <input type="text" id="direccion" name="direccion" required
+                                placeholder="Calle, número, comuna, ciudad">
+                        </div>
+                    </div>
 
-    <label for="animalname">Nombre de la mascota:</label><br>
-    <input type="text" id="animalname" name="animalname" required><br><br>
+                    <div class="form-section">
+                        <h3><i class="fas fa-paw"></i> Información de la Mascota</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="animalname">
+                                    <i class="fas fa-tag"></i>
+                                    Nombre de la mascota *
+                                </label>
+                                <input type="text" id="animalname" name="animalname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="breedname">
+                                    <i class="fas fa-dog"></i>
+                                    Tipo de animal
+                                </label>
+                                <input type="text" id="breedname" name="breedname"
+                                    placeholder="Ej: Perro, Gato, Conejo">
+                            </div>
+                        </div>
+                    </div>
 
-    <label for="breedname">tipo del animal:</label><br>
-    <input type="text" id="breedname" name="breedname"><br><br>
+                    <div class="form-section">
+                        <h3><i class="fas fa-calendar-alt"></i> Detalles de la Cita</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fecha">
+                                    <i class="fas fa-calendar"></i>
+                                    Fecha preferida *
+                                </label>
+                                <input type="date" id="fecha" name="fecha" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    Tipo de servicio *
+                                </label>
+                                <select id="estado" name="estado" required>
+                                    <option value="">Selecciona un servicio</option>
+                                    <option value="consulta">Consulta General</option>
+                                    <option value="vacunacion">Vacunación</option>
+                                    <option value="peluqueria">Peluquería</option>
+                                    <option value="emergencia">Emergencia</option>
+                                    <option value="control">Control de Rutina</option>
+                                    <option value="cirugia">Cirugía Menor</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="motivo">
+                                <i class="fas fa-comment-alt"></i>
+                                Motivo de la consulta *
+                            </label>
+                            <textarea id="motivo" name="motivo" rows="4" required
+                                placeholder="Describe los síntomas, comportamiento o motivo de la consulta..."></textarea>
+                        </div>
+                    </div>
 
-    <label for="fecha">Fecha de atención:</label><br>
-    <input type="date" id="fecha" name="fecha" required><br><br>
-
-    <label for="estado">Estado:</label><br>
-    <select id="estado" name="estado" required>
-        <option value="adoptado">Adopción</option>
-        <option value="foster">perdido</option>
-        <option value="transfer">Traslado</option>
-        <option value="medical">Médico</option>
-    </select><br><br>
-
-    <label for="motivo">Motivo:</label><br>
-    <textarea id="motivo" name="motivo" rows="4" cols="40" placeholder="Peluquería, vacuna o atención médica..."
-        required></textarea><br><br>
-
-    <button type="submit">Reservar hora</button>
-</form>
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-calendar-check"></i>
+                            Reservar Cita
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
